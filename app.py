@@ -15,6 +15,10 @@ def speech_to_text():
     # Return text
     return jsonify({'text': text})
 
+@app.route('/test', methods=['GET'])
+def test():
+    return jsonify({'text': 'test'})
+
 if __name__ == '__main__':
-    app.run(debug=True, threaded=True)
+    app.run(threaded=True, port=5000, host='0.0.0.0')
     
