@@ -1,11 +1,10 @@
-FROM python:3.11
+FROM alpine:latest
 
 # switch working directory
 WORKDIR /app
 
 # install the dependencies and packages in the requirements file
-RUN pip install flask
-RUN pip install speechRecognition
+RUN apk add --no-cache python3-dev && pip3 install --upgrade pip && pip3 install flask && pip3 install speechRecognition
 
 # copy every content from the local file to the image
 COPY . /app
